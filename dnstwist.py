@@ -40,6 +40,7 @@ from os import path
 import smtplib
 import json
 import queue
+import pdb
 
 try:
 	import dns.resolver
@@ -370,7 +371,7 @@ class DomainFuzz():
 			result.append(word + '-' + self.domain)
 			result.append(word + self.domain)
 		return list(set(result))
-
+		r
 	def __tld(self):
 		if self.tld in self.tld_dictionary:
 			self.tld_dictionary.remove(self.tld)
@@ -768,7 +769,6 @@ def main():
 			parser.error('dictionary file not found: %s' % args.dictionary)
 		with open(args.dictionary) as f:
 			dictionary = set(f.read().splitlines())
-			dictionary = [x for x in dictionary if x.isalpha()]
 
 	tld = []
 	if args.tld:
